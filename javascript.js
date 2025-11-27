@@ -11,7 +11,6 @@ const WINNING_HANDS = {
 function getRandomInt() {
 
   return Math.floor(Math.random() * CHOICES);
-  
 }
 
 function getComputerChoice() {
@@ -55,7 +54,7 @@ function playGame() {
         }
     }
 
-    for (i = 0; i <= 5; i++) {
+    for (i = 0; i < 5; i++) {
         playRound(getComputerChoice(), getHumanChoice());
     }
 
