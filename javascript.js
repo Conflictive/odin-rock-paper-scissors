@@ -45,16 +45,14 @@ function playGame() {
 
     function playRound(computerChoice, humanChoice) {
         if (computerChoice == humanChoice) {
-            return "Tie";
+            console.log("Tie");
+        } else if (WINNING_HANDS[computerChoice] = humanChoice) {
+            humanScore++
+            console.log(`You win! ${humanChoice} beats ${computerChoice}`);
+        } else {
+            computerScore++
+            console.log(`You lose! ${computerChoice} beats ${humanChoice}`);
         }
-
-        if (WINNING_HANDS[computerChoice] = humanChoice) {
-            gameState.playerScore++;
-            return `You win! ${humanChoice} beats ${computerChoice}`;
-        }
-
-        gameState.computerScore++
-        return `You lose! ${computerChoice} beats ${humanChoice}`;
     }
 
     for (i = 0; i <= 5; i++) {
@@ -70,7 +68,6 @@ function playGame() {
     } else {
         console.log("The computer won.");
     }
-
 
     console.log(`Final score - You ${humanScore}, Computer - ${computerScore}`);
 }
