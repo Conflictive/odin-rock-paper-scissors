@@ -41,8 +41,16 @@ function getHumanChoice() {
     }
 }
 
-function playRound() {
+function playRound(computerChoice, humanChoice) {
+    if (computerChoice == humanChoice) {
+        return "Tie"
+    }
 
+    if (WINNING_HANDS[computerChoice] = humanChoice) {
+        return "You win!"
+    }
+
+    return "You lose"
 }
 
 getHumanChoice();
