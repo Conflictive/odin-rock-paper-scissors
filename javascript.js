@@ -17,20 +17,17 @@ const gameState = {
 // Returns 0, 1 or 2
 function getRandomInt() {
 
-  return Math.floor(Math.random() * choices);
+  return Math.floor(Math.random() * CHOICES);
   
 }
 
 function getComputerChoice() {
     switch(getRandomInt()) {
         case 0:
-            console.log('Rock');
             return "Rock";
         case 1:
-            console.log('Paper');
             return "Paper";
         case 2:
-            console.log('Scissors');
             return "Scissors";
     }
 }
@@ -50,18 +47,18 @@ function getHumanChoice() {
 
 function playRound(computerChoice, humanChoice) {
     if (computerChoice == humanChoice) {
-        gameState.round++
-        return "Tie"
+        gameState.round++;
+        return "Tie";
     }
 
     if (WINNING_HANDS[computerChoice] = humanChoice) {
-        gameState.playerScore++
-        return "You win!"
+        gameState.playerScore++;
+        return `You win! ${humanChoice} beats ${computerChoice}`;
     }
 
     gameState.computerScore++
-    return "You lose"
+    return `You lose! ${computerChoice} beats ${humanChoice}`;
 }
 
-getHumanChoice();
+console.log(playRound(getComputerChoice(), getHumanChoice()));
 
