@@ -7,8 +7,11 @@ const WINNING_HANDS = {
     scissors: "Rock"
 }
 
-let computerScore = 0
-let humanScore = 0
+const gameState = {
+  playerScore: 0,
+  computerScore: 0,
+  round: 1
+};
 
 
 // Returns 0, 1 or 2
@@ -47,13 +50,16 @@ function getHumanChoice() {
 
 function playRound(computerChoice, humanChoice) {
     if (computerChoice == humanChoice) {
+        gameState.round++
         return "Tie"
     }
 
     if (WINNING_HANDS[computerChoice] = humanChoice) {
+        gameState.playerScore++
         return "You win!"
     }
 
+    gameState.computerScore++
     return "You lose"
 }
 
