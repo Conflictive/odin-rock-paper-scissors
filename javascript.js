@@ -1,5 +1,11 @@
 // Representing rock, paper and scissors
-const choices = 3;
+const CHOICES = 3;
+
+const WINNING_HANDS = {
+    rock: "Paper",
+    paper: "Scissors",
+    scissors: "Rock"
+}
 
 // Returns 0, 1 or 2
 function getRandomInt() {
@@ -12,13 +18,13 @@ function getComputerChoice() {
     switch(getRandomInt()) {
         case 0:
             console.log('Rock');
-            break;
+            return "Rock";
         case 1:
             console.log('Paper');
-            break;
+            return "Paper";
         case 2:
             console.log('Scissors');
-            break;
+            return "Scissors";
     }
 }
 
@@ -27,15 +33,16 @@ function getHumanChoice() {
 
     switch (playerHand.toLowerCase()) {
         case "rock":
-            console.log("Human - Rock");
-            break;
+            return "Rock";
         case "paper":
-            console.log("Human - Paper");
-            break;
-        case "Scissors":
-            console.log("Human - Scissors")
-            break;
+            return "Paper";
+        case "scissors":
+            return "Scissors";
     }
+}
+
+function playRound() {
+
 }
 
 getHumanChoice();
