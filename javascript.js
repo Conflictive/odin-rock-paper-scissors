@@ -2,9 +2,9 @@
 const CHOICES = 3;
 
 const WINNING_HANDS = {
-    rock: "Paper",
-    paper: "Scissors",
-    scissors: "Rock"
+    Rock: "Paper",
+    Paper: "Scissors",
+    Scissors: "Rock"
 }
 
 // Returns 0, 1 or 2
@@ -46,7 +46,7 @@ function playGame() {
     function playRound(computerChoice, humanChoice) {
         if (computerChoice == humanChoice) {
             console.log("Tie");
-        } else if (WINNING_HANDS[computerChoice] = humanChoice) {
+        } else if (WINNING_HANDS[computerChoice] == humanChoice) {
             humanScore++
             console.log(`You win! ${humanChoice} beats ${computerChoice}`);
         } else {
