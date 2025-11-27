@@ -7,13 +7,6 @@ const WINNING_HANDS = {
     scissors: "Rock"
 }
 
-const gameState = {
-  playerScore: 0,
-  computerScore: 0,
-  round: 1
-};
-
-
 // Returns 0, 1 or 2
 function getRandomInt() {
 
@@ -45,20 +38,41 @@ function getHumanChoice() {
     }
 }
 
-function playRound(computerChoice, humanChoice) {
-    if (computerChoice == humanChoice) {
-        gameState.round++;
-        return "Tie";
+function playGame() {   
+    
+    let computerScore = 0;
+    let humanScore = 0;
+
+    function playRound(computerChoice, humanChoice) {
+        if (computerChoice == humanChoice) {
+            return "Tie";
+        }
+
+        if (WINNING_HANDS[computerChoice] = humanChoice) {
+            gameState.playerScore++;
+            return `You win! ${humanChoice} beats ${computerChoice}`;
+        }
+
+        gameState.computerScore++
+        return `You lose! ${computerChoice} beats ${humanChoice}`;
     }
 
-    if (WINNING_HANDS[computerChoice] = humanChoice) {
-        gameState.playerScore++;
-        return `You win! ${humanChoice} beats ${computerChoice}`;
+    for (i = 0; i <= 5; i++) {
+        playRound(getComputerChoice(), getHumanChoice());
     }
 
-    gameState.computerScore++
-    return `You lose! ${computerChoice} beats ${humanChoice}`;
+    console.log("Game over");
+
+    if (humanScore == computerScore) {
+        console.log("It was a tie");
+    } else if (humanScore > computerScore) {
+        console.log("You won!");
+    } else {
+        console.log("The computer won.");
+    }
+
+
+    console.log(`Final score - You ${humanScore}, Computer - ${computerScore}`);
 }
 
-console.log(playRound(getComputerChoice(), getHumanChoice()));
-
+playGame()
