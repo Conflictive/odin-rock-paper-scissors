@@ -7,6 +7,10 @@ const WINNING_HANDS = {
     scissors: "Rock"
 }
 
+let computerScore = 0
+let humanScore = 0
+
+
 // Returns 0, 1 or 2
 function getRandomInt() {
 
