@@ -11,16 +11,32 @@ function getRandomInt() {
 function getComputerChoice() {
     switch(getRandomInt()) {
         case 0:
-            console.log('Rock')
+            console.log('Rock');
             break;
         case 1:
-            console.log('Paper')
+            console.log('Paper');
             break;
         case 2:
-            console.log('Scissors')
+            console.log('Scissors');
             break;
     }
 }
 
-getComputerChoice()
+function getHumanChoice() {
+    let playerHand = prompt("Rock, Paper, Scissors");
+
+    switch (playerHand.toLowerCase()) {
+        case "rock":
+            console.log("Human - Rock");
+            break;
+        case "paper":
+            console.log("Human - Paper");
+            break;
+        case "Scissors":
+            console.log("Human - Scissors")
+            break;
+    }
+}
+
+getHumanChoice();
 
