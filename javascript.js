@@ -26,15 +26,9 @@ function getComputerChoice() {
 
 function getHumanChoice() {
     let playerHand = prompt("Rock, Paper, Scissors");
-
-    switch (playerHand.toLowerCase()) {
-        case "rock":
-            return "Rock";
-        case "paper":
-            return "Paper";
-        case "scissors":
-            return "Scissors";
-    }
+    
+    return playerHand.toLowerCase();
+    
 }
 
 function playGame() {   
@@ -54,7 +48,7 @@ function playGame() {
         }
     }
 
-    for (i = 0; i < 5; i++) {
+    for (let i = 0; i < 5; i++) {
         playRound(getComputerChoice(), getHumanChoice());
     }
 
