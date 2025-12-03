@@ -2,6 +2,8 @@
 
 A simple browser game built for **The Odin Project** foundations course.
 
+**[View Live Demo](https://conflictive.github.io/odin-rock-paper-scissors/)**
+
 ## How to Play
 1. Open `index.html` in your browser.
 2. Click the buttons to choose your move.
