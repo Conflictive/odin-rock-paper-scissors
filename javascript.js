@@ -29,14 +29,6 @@ function getComputerChoice() {
 
 function playRound(computerChoice, humanChoice) {
 
-    if (computerScore >= 5 || humanScore >= 5) {
-        computerScore = 0;
-        humanScore = 0;
-
-        hScore.textContent = humanScore;
-        cScore.textContent = computerScore;
-    }
-
     if (computerChoice == humanChoice) {
          results.textContent = "Tie!"
     } else if (WINNING_HANDS[computerChoice] == humanChoice) {
@@ -69,6 +61,22 @@ function endGame() {
 
     winInfo.textContent = ` Final score - You: ${humanScore}, Computer: ${computerScore}`;
     results.appendChild(winInfo);
+
+    resetBtn.style.visibility = "visible";
+   
+    resetBtn.addEventListener("click", () => {
+        gameControls.style.visibility = "visible";
+        resetBtn.style.visibility = "hidden";
+
+        computerScore = 0;
+        humanScore = 0;
+
+        hScore.textContent = humanScore;
+        cScore.textContent = computerScore;
+    });
+
+    gameControls.style.visibility = "hidden";
+    
 }
 
 const rockBtn = document.querySelector("#rock");
@@ -96,3 +104,12 @@ paperBtn.addEventListener("click", () => {
 scissorsBtn.addEventListener("click", () => {
     playRound(getComputerChoice(), "Scissors");
 });
+
+const gameControls = document.querySelector("#game-controls");
+const endContainer = document.querySelector("#game-end");
+const resetBtn = document.createElement("button");
+resetBtn.textContent = "Play again"
+resetBtn.style.visibility = "hidden";
+endContainer.appendChild(resetBtn);
+
+
