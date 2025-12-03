@@ -52,14 +52,14 @@ function playGame() {
 
 function playRound(computerChoice, humanChoice) {
 
+    const results = document.querySelector("#results");
+
         if (computerChoice == humanChoice) {
-            console.log("Tie");
+            results.textContent = "Tie!"
         } else if (WINNING_HANDS[computerChoice] == humanChoice) {
-            humanScore++
-            console.log(`You win! ${humanChoice} beats ${computerChoice}`);
+            results.textContent = `You win! ${humanChoice} beats ${computerChoice}`;
         } else {
-            computerScore++
-            console.log(`You lose! ${computerChoice} beats ${humanChoice}`);
+            results.textContent = `You lose! ${computerChoice} beats ${humanChoice}`;
         }
 }
 
@@ -78,6 +78,8 @@ paper.addEventListener("click", () => {
 scissors.addEventListener("click", () => {
     playRound(getComputerChoice(), "Scissors");
 });
+
+
 
 
 // playGame()
