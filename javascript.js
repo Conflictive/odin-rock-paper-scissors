@@ -7,6 +7,9 @@ const WINNING_HANDS = {
     Scissors: "Rock"
 }
 
+let computerScore = 0;
+let humanScore = 0;
+
 // Returns 0, 1 or 2
 function getRandomInt() {
 
@@ -24,31 +27,6 @@ function getComputerChoice() {
     }
 }
 
-function getHumanChoice() {
-    let playerHand = prompt("Rock, Paper, Scissors");
-    
-    return playerHand.toLowerCase();
-    
-}
-
-function playGame() {   
-    
-    let computerScore = 0;
-    let humanScore = 0;
-
-    
-    console.log("Game over");
-
-    if (humanScore == computerScore) {
-        console.log("It was a tie");
-    } else if (humanScore > computerScore) {
-        console.log("You won!");
-    } else {
-        console.log("The computer won.");
-    }
-
-    console.log(`Final score - You ${humanScore}, Computer - ${computerScore}`);
-}
 
 function playRound(computerChoice, humanChoice) {
 
@@ -61,6 +39,20 @@ function playRound(computerChoice, humanChoice) {
         } else {
             results.textContent = `You lose! ${computerChoice} beats ${humanChoice}`;
         }
+}
+
+function endGame() {
+    console.log("Game over");
+
+    if (humanScore == computerScore) {
+        console.log("It was a tie");
+    } else if (humanScore > computerScore) {
+        console.log("You won!");
+    } else {
+        console.log("The computer won.");
+    }
+
+    console.log(`Final score - You ${humanScore}, Computer - ${computerScore}`);
 }
 
 const rock = document.querySelector("#rock");
@@ -78,6 +70,8 @@ paper.addEventListener("click", () => {
 scissors.addEventListener("click", () => {
     playRound(getComputerChoice(), "Scissors");
 });
+
+
 
 
 
