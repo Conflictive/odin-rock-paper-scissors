@@ -29,17 +29,23 @@ function getComputerChoice() {
 
 function playRound(computerChoice, humanChoice) {
 
-    
+    if (computerScore >= 5 || humanScore >= 5) {
+        computerScore = 0;
+        humanScore = 0;
+
+        hScore.textContent = humanScore;
+        cScore.textContent = computerScore;
+    }
 
     if (computerChoice == humanChoice) {
          results.textContent = "Tie!"
     } else if (WINNING_HANDS[computerChoice] == humanChoice) {
         humanScore++;
-        humanResult.textContent = humanScore
+        hScore.textContent = humanScore
         results.textContent = `You win! ${humanChoice} beats ${computerChoice}`;
     } else {
         computerScore++;
-        computerResult.textContent = computerScore;
+        cScore.textContent = computerScore;
         results.textContent = `You lose! ${computerChoice} beats ${humanChoice}`;
     }
 
@@ -50,19 +56,19 @@ function playRound(computerChoice, humanChoice) {
 
 function endGame() {
     results.textContent = "Game over";
-    const winner = document.createTextNode(" -")
+    const winner = document.createTextNode(" -");
+    const winInfo = document.createTextNode(" - ");
 
     if (humanScore > computerScore) {
-        winner.textContent = " - You won!"
+        winner.textContent = " - You won!";
     } else {
-        winner.textContent = " - The computer won."
+        winner.textContent = " - The computer won.";
     }
 
     results.appendChild(winner);
 
-    
-
-    console.log(`Final score - You ${humanScore}, Computer - ${computerScore}`);
+    winInfo.textContent = ` Final score - You: ${humanScore}, Computer: ${computerScore}`;
+    results.appendChild(winInfo);
 }
 
 const rockBtn = document.querySelector("#rock");
@@ -72,6 +78,11 @@ const scissorsBtn = document.querySelector("#scissors");
 const results = document.querySelector("#results");
 const humanResult = document.querySelector("#human-score");
 const computerResult = document.querySelector("#computer-score");
+const hScore = document.createTextNode("0");
+const cScore = document.createTextNode("0");
+
+humanResult.appendChild(hScore);
+computerResult.appendChild(cScore);
 
 
 rockBtn.addEventListener("click", () => {
@@ -85,11 +96,3 @@ paperBtn.addEventListener("click", () => {
 scissorsBtn.addEventListener("click", () => {
     playRound(getComputerChoice(), "Scissors");
 });
-
-
-
-
-
-
-
-// playGame()
